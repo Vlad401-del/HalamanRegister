@@ -19,6 +19,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.*
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.halamanregister.ui.theme.HalamanRegisterTheme
 
@@ -51,6 +54,24 @@ fun RegisterPage() {
             fontSize = 32.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        var nama by remember { mutableStateOf("") }
+
+        OutlinedTextField(
+            value =  nama,
+            onValueChange = {nama = it}, //menyimpan teks baru it ke memori saat user mengetik
+            label = {Text("Nama Lengkap")}, //label
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        var nim by remember { mutableStateOf("") }
+
+        OutlinedTextField(
+            value = nim,
+            onValueChange = {nim = it},
+            label = {Text("NIM")},
             modifier = Modifier.fillMaxWidth()
         )
     }
